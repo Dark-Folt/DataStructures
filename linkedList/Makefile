@@ -6,13 +6,16 @@ EXEC=prog
 
 all: $(EXEC)
 
-prog: main.o Node.o
+prog: main.o Node.o LinkedList.o
 	$(CC) -o $@ $^ $(LDFLAGS)
 
 main.o: main.c Node.h
 	$(CC) -o $@ -c $< $(CFLAGS)
 
 Node.o: Node.c
+	$(CC) -o $@ -c $< $(CFLAGS)
+
+LinkedList.o: LinkedList.c Node.h
 	$(CC) -o $@ -c $< $(CFLAGS)
 
 clean:
