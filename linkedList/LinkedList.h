@@ -8,4 +8,7 @@ struct LinkedList_int
     struct Node *head;
     unsigned int length;
 };
+
+/** * Protype des fonctions * */
+unsigned int linkedList_length(const struct LinkedList_int *);
 #endif
