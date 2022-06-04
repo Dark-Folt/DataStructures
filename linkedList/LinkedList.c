@@ -1,8 +1,10 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <assert.h>
-
 #include "LinkedList.h"
+
+bool
+linkedList_empty (LinkedList_t *l)
+{
+    return (NULL == l->head) && (0 == l->length);
+}
 
 unsigned int
 linkedList_length(const LinkedList_t* list)
@@ -34,6 +36,11 @@ linkedList_insert (LinkedList_t *list, Node_t *node)
         return;
     }
 
+    if (list->length == 1) {
+        list->head->next = node;
+        list->length ++;
+        return;
+    }
     /**
      * On parcour la liste 
      * si le suivant est nulle
@@ -42,7 +49,56 @@ linkedList_insert (LinkedList_t *list, Node_t *node)
      */
     Node_t *tmp = list->head;
 
-    for ( ; tmp->next; tmp = tmp->next);
+    for ( ; tmp->next; tmp = tmp->next)
+        ;
+
     tmp->next = node;
     list->length++;
+
+    // while (tmp->next) {
+    //     tmp = tmp->next;
+    // }
+    // tmp->next = node;
+    // list->length++;
 }
+
+void
+linkedList_display (LinkedList_t *list)
+{
+    if (linkedList_empty (list)) {
+        fprintf (stderr, "La liste est vide\n");
+        return;
+    }
+
+    Node_t *tmp = list->head;
+    for( ; tmp; tmp = tmp->next) {
+        node_display (tmp);
+    }
+}
+
+void
+linkedList_free (LinkedList_t *list)
+{
+    if (NULL == list) {
+        fprintf (stderr, "Liste vide\n");
+        return;
+    }
+
+    Node_t *tmp, *node_d;
+
+    node_d = tmp = list->head;
+    printf ("-------Nettoyage de la liste--------\n");
+    while (tmp && list->length > 0)
+    {
+        node_d = tmp;
+        tmp = tmp->next;
+        printf ("supression de: %d\t@: %p\tn: %p\n", node_d->value, node_d, node_d->next);
+        node_free (node_d);
+        list->length--;
+    }
+    list->head = NULL;
+    printf ("-------FIN-------\n");
+
+    printf ("taille: %d et tete: %p\n", list->length, list->head);
+}
+LinkedList_t * linkedList_create ();
