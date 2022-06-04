@@ -3,12 +3,13 @@
 
 #include "Node.h"
 
-struct LinkedList_int
+typedef struct _LinkedList_int
 {
-    struct Node *head;
+    Node_t *head;
     unsigned int length;
-};
+}LinkedList_t;
 
 /** * Protype des fonctions * */
-unsigned int linkedList_length(const struct LinkedList_int *);
+unsigned int linkedList_length (const LinkedList_t*);
+void linkedList_insert (LinkedList_t *, Node_t *node);
 #endif
