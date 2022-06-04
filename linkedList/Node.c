@@ -20,7 +20,6 @@ node_create (int value)
     return node;
 }
 
-
 void
 node_free (Node_t *node)
 {

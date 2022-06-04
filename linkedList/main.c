@@ -4,9 +4,6 @@
 #include "Node.h"
 #include "LinkedList.h"
 
-
-
-
 int main(void)
 {
     // Node_t *node = node_create(23);
@@ -24,15 +21,6 @@ int main(void)
 
     linkedList_free (&l);
     linkedList_display (&l);
-    // linkedList_display (&l);
 
-
-    // node_free (node_1);
-    // node_free (node_2);
-    // node_free (node_3);
-    // node_free (node_4);
-
-    // linkedList_display (&l);
-    // node_display (node);
     return EXIT_SUCCESS;
 }

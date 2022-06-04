@@ -16,5 +16,4 @@ void node_free(Node_t *);
 void node_display(const Node_t *);
 bool node_empty (const Node_t *);
 
-
 #endif

@@ -54,12 +54,6 @@ linkedList_insert (LinkedList_t *list, Node_t *node)
 
     tmp->next = node;
     list->length++;
-
-    // while (tmp->next) {
-    //     tmp = tmp->next;
-    // }
-    // tmp->next = node;
-    // list->length++;
 }
 
 void
@@ -101,4 +95,5 @@ linkedList_free (LinkedList_t *list)
 
     printf ("taille: %d et tete: %p\n", list->length, list->head);
 }
+
 LinkedList_t * linkedList_create ();
