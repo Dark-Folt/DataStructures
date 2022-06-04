@@ -9,8 +9,30 @@
 
 int main(void)
 {
-    LinkedList_t *list = 0;
-    linkedList_length (list);
-    printf ("long: %d\n", linkedList_length(list));
+    // Node_t *node = node_create(23);
+    LinkedList_t l = {.head = NULL, .length = 0};
+    Node_t * node_1 = node_create(23);
+    Node_t * node_2 = node_create(24);
+    Node_t * node_3 = node_create(25);
+    Node_t * node_4 = node_create(26);
+
+    linkedList_insert (&l, node_1);
+    linkedList_insert (&l, node_2);
+    linkedList_insert (&l, node_3);
+    linkedList_insert (&l, node_4);
+    linkedList_display (&l);
+
+    linkedList_free (&l);
+    linkedList_display (&l);
+    // linkedList_display (&l);
+
+
+    // node_free (node_1);
+    // node_free (node_2);
+    // node_free (node_3);
+    // node_free (node_4);
+
+    // linkedList_display (&l);
+    // node_display (node);
     return EXIT_SUCCESS;
 }
